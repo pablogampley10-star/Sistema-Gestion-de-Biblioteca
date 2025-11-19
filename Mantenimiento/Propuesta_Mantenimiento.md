@@ -1,77 +1,79 @@
-# 🔧 Propuesta de Mantenimiento del Sistema de Gestión de Biblioteca
+# 📘 Propuesta de Mantenimiento
 
-## 📖 Introducción
-El Sistema de Gestión de Biblioteca, desarrollado para optimizar el registro, préstamo y devolución de libros, presenta limitaciones que afectan su confiabilidad y eficiencia.  
-Entre los principales problemas detectados se encuentran:
-- Ausencia de control de disponibilidad de libros.
-- Falta de registro y trazabilidad de usuarios.
-- Reportes limitados para la toma de decisiones.
-
-Con base en estas observaciones, se propone un plan de mantenimiento que combine acciones **correctivas** y **perfectivas**.
+## 🛠️ Tema
+**Mantenibilidad de productos de software**  
+Caso de estudio: **Sistema de Gestión de Biblioteca**
 
 ---
 
-## 🛠 Tipos de mantenimiento aplicables
+## 🔎 Conceptos Teóricos de Mantenimiento de Software
 
-### 1. Mantenimiento Correctivo
-- **Objetivo:** Corregir defectos que afectan la operación normal del sistema.  
-- **Aplicación en el caso:**  
-  - Resolver el error que permite préstamos duplicados sin validar disponibilidad.  
-- **Justificación técnica:**  
-  - Garantiza la integridad de los datos y evita inconsistencias en el inventario.  
-- **Beneficio esperado:**  
-  - Mayor confiabilidad en el control de ejemplares.
+### Tipos de Mantenimiento
+- **Correctivo:** Corrige errores o fallos detectados después del lanzamiento.  
+- **Adaptativo:** Ajusta el software a cambios en el entorno (SO, hardware, normativas).  
+- **Perfectivo:** Añade nuevas funcionalidades, optimiza rendimiento y mejora usabilidad.  
+- **Preventivo:** Acciones programadas para evitar fallos futuros y optimizar rendimiento.  
 
----
-
-### 2. Mantenimiento Perfectivo
-- **Objetivo:** Ampliar y mejorar la funcionalidad del sistema.  
-- **Aplicación en el caso:**  
-  - Incorporar un módulo de **usuarios** con datos básicos (ID, nombre, correo).  
-  - Añadir un campo **estado** en la tabla de libros (Disponible/Prestado).  
-  - Implementar validaciones automáticas antes de confirmar un préstamo.  
-  - Mejorar el módulo de reportes con estadísticas de uso y préstamos vencidos.  
-- **Justificación técnica:**  
-  - Responde a necesidades evolutivas del sistema, mejorando trazabilidad y escalabilidad.  
-- **Beneficio esperado:**  
-  - Transparencia en la gestión, reducción de errores humanos y soporte a la toma de decisiones.
+### Costos de Mantenimiento
+- **Directos:** Mano de obra, materiales, repuestos, tiempo de inactividad.  
+- **Indirectos:** Pérdida de producción, impactos operativos.  
+- **Indicador clave:** CPMV (Costo Total de Mantenimiento como % del Valor de Reemplazo del Activo).  
 
 ---
 
-## 📂 Cambios funcionales propuestos
-1. Crear tabla **Usuarios** en la base de datos.  
-2. Modificar tabla **Libros** para incluir campo `Estado`.  
-3. Relacionar **Usuarios** con **Préstamos** mediante identificador único.  
-4. Incorporar formularios gráficos (GUI) para gestión de usuarios y préstamos.  
-5. Añadir validaciones automáticas en la capa lógica antes de confirmar un préstamo.  
+## ⚠️ Problemáticas Identificadas
+1. El sistema no permite llevar control del progreso de lectura de los libros.  
+2. La interfaz es poco dinámica y requiere mejor adaptación visual.  
 
 ---
 
-## 📊 Evaluación del impacto
+## 🧩 Tipos de Mantenimiento Aplicables
 
-| Criterio              | Antes del cambio | Después del cambio |
-|-----------------------|------------------|--------------------|
-| Control de disponibilidad | ❌ No | ✅ Sí |
-| Registro de usuarios  | ❌ No | ✅ Sí |
-| Confiabilidad de datos | Media | Alta |
-| Trazabilidad          | Limitada | Completa |
-| Mantenibilidad        | Media | Alta |
-| Escalabilidad         | Baja | Alta |
+| Problemática | Tipo de Mantenimiento | Justificación |
+|--------------|----------------------|---------------|
+| No permite llevar control del progreso de lectura | **Perfectivo** | Añade nuevas funciones y mejora la experiencia del usuario. |
+| Interfaz poco dinámica | **Adaptativo** | Se entrega una nueva versión de la interfaz para mayor comodidad de navegación. |
 
 ---
 
-## 🔄 Reflexión sobre el control de versiones
-El uso de **control de versiones (Git/GitHub)** es esencial para gestionar este proceso de mantenimiento.  
-Permite:
-- Documentar cada cambio en el código y la base de datos.  
-- Coordinar el trabajo en equipo sin sobrescribir avances.  
-- Revertir errores y comparar versiones anteriores.  
-- Mantener un historial claro de la evolución del sistema.  
+## ✨ Cambio Funcional Propuesto
+**Funcionalidad nueva:** Registro del avance de lectura de los libros por usuario.  
 
-En este proyecto, el control de versiones asegura que las mejoras correctivas y perfectivas se integren de manera ordenada, garantizando la calidad y sostenibilidad del software.
+### 📑 Descripción Técnica
+- Campo de avance de lectura (%) o páginas leídas en el módulo de préstamos/libros adquiridos.  
+- Actualización manual del progreso por parte del usuario.  
+- Reportes e indicadores del avance total de lectura.  
+- Panel visual con barra o gráfico de progreso.  
+
+### 📈 Impacto del Cambio
+- **Mantenibilidad:** Facilita futuras ampliaciones (recomendaciones, estadísticas).  
+- **Calidad:** Mejora la interacción y satisfacción del usuario.  
+- **Usabilidad:** Interfaz más intuitiva y atractiva.  
 
 ---
 
-## ✅ Conclusión
-La propuesta de mantenimiento permitirá que el Sistema de Gestión de Biblioteca evolucione hacia una solución más confiable, trazable y escalable.  
-La combinación de **mantenimiento correctivo** y **perfectivo**, junto con el uso disciplinado de **control de versiones**, asegura que el sistema se mantenga alineado con las necesidades reales de los usuarios y preparado para futuras mejoras.
+## 📝 Uso de Markdown en Proyectos de Software
+- Lenguaje de marcado sencillo creado por John Gruber (2004).  
+- Permite dar formato a texto plano y convertirlo fácilmente en HTML.  
+- Ventajas en GitHub:  
+  - Comunicación ágil.  
+  - Documentación clara y legible.  
+  - Colaboración eficiente en proyectos.  
+
+---
+
+## 📊 Evidencia Opcional del Cambio
+
+### Diagrama de Caso de Uso (UML)
+- **Actor:** Usuario  
+- **Caso de Uso Existente:** Gestionar Préstamo/Libro Adquirido  
+- **Nuevo Caso de Uso:** Registrar Avance de Lectura  
+- **Relación:** Extiende de "Gestionar Préstamo/Libro Adquirido"  
+
+---
+
+## 💡 Reflexión Final
+El mantenimiento propuesto amplía las capacidades del sistema y fortalece la relación entre usuario y aplicación.  
+La nueva funcionalidad convierte al sistema en una herramienta más dinámica, moderna y centrada en el usuario.  
+
+---
